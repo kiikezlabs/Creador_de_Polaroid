@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Foto Polaroid</title>
+  <style>
+    /* Estilos para el contenido del sitio web */
+    body {
+      /* Fondo degradado rosado difuminado con amarillo */
+      background-color: pink;
+      background-image: linear-gradient(135deg, pink, yellow);
+      background-size: cover;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-position: center;
+      margin: 0;
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    input, label, button, select {
+      display: block;
+      margin: 10px;
+    }
+
+    /* Estilo para el botón verde */
+    .green-button {
+      background-color: green;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    /* Estilo para los enlaces */
+    a {
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="contentContainer">
+    <div id="polaroidContainer">
+      <!-- Contenedor para la foto generada -->
+      <div id="generatedImageContainer" style="display: none; text-align: center;">
+        <img id="generatedImage" src="" alt="Foto Polaroid">
+        <br>
+        <p id="polaroidPrice"></p>
+        <a id="downloadLink" style="display: none;">Descargar Polaroid</a>
+        <br>
+        <button class="green-button" onclick="shareToWhatsApp()">Compartir en WhatsApp</button>
+        <button class="green-button" onclick="shareToOtherApps()">Compartir con otras aplicaciones</button>
+      </div>
+
+      <!-- Opciones para generar la foto polaroid -->
+      <input type="file" id="uploadImage" accept="image/*">
+      <br>
+      <label for="borderColor">Color de bordes:</label>
+      <input type="color" id="borderColor" value="#000000">
+      <br>
+      <label for="text">Texto en la parte inferior:</label>
+      <input type="text" id="text">
+      <br>
+      <label for="emoji">Elige un emoji:</label>
+      <select id="emoji">
+        <option value="">Selecciona un emoji</option>
+        <option value="&#128512;">😀 Feliz</option>
+        <option value="&#128546;">😢 Triste</option>
+        <option value="&#128515;">😃 Feliz sonriente</option>
+        <!-- Puedes agregar más opciones de emojis aquí -->
+      </select>
+      <br>
+      <label for="textColor">Color del texto:</label>
+      <input type="color" id="textColor" value="#000000">
+      <br>
+      <label for="textSize">Tamaño del texto:</label>
+      <input type="number" id="textSize" min="10" max="50" value="20">
+      <br>
+      <button onclick="generatePolaroid()">Generar Polaroid</button>
+    </div>
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
